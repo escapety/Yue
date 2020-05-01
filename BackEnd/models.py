@@ -14,7 +14,6 @@ class Comment(models.Model):
     text = models.TextField()
     #评论举报数量
     complaint_num = models.IntegerField()
-    #当前阶段暂不实现回复功能
 
 #活动类
 class Activity(models.Model):
@@ -73,3 +72,8 @@ class Sign_up(models.Model):
 class Friend(models.Model):
     user1 = models.IntegerField()
     user2 = models.IntegerField()
+
+#评论回复
+class Commemt_reply(models.Model):
+    comment = models.IntegerField()
+    reply = models.IntegerField()

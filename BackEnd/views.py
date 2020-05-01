@@ -207,4 +207,38 @@ def comment(request):
     user.comments.add(new_comment)
     return HttpResponse("OK")
 
+def reply_comment(request):
+    comment_id = int(request.GET.get('cmtid', ''))
+    comment = models.Comment.objects.get(id = comment_id)
+    userid = int(request.GET.get('userid', ''))
+    actid = comment.act_id
+    comment_text = request.GET.get('comment', '')
+    act = models.Activity.objects.get(id = actid)
+    user = models.User.objects.get(id = userid)
+    new_comment = models.Comment.objects.create(user_id = userid, act_id = actid, text = comment_text, complaint_num = 0)
+    new_reply = models.Commemt_reply.objects.create(comment = comment_id, reply = new_comment.id)
+    act.comments.add(new_comment)
+    user.comments.add(new_comment)
+    return HttpResponse("OK")
 
+def get_reply_comment(request):
+    comment_id = int(request.GET.get('cmtid', ''))
+    all_reply = models.Commemt_reply.objects.filter(comment = comment_id)
+    reply_list = []
+    for reply_item in all_reply:
+        reply_list.append(reply_item.reply)
+    ret = {
+        'data':reply_list,
+    }
+    return HttpResponse(json.dumps(ret), content_type='application/json')
+
+def get_origin_comment(request):
+    relpy_id = int(request.GET.get('cmtid', ''))
+    all_reply = models.Commemt_reply.objects.filter(reply = reply_id)
+    comment_list = []
+    for reply_item in all_reply:
+        comment_list.append(reply_item.comment)
+    ret = {
+        'data':comment_list,
+    }
+    return HttpResponse(json.dumps(ret), content_type='application/json')

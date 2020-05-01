@@ -17,4 +17,7 @@ urlpatterns = [
     url(r'^get_user_comments/', views.get_user_comments),
     url(r'^get_act_comments/', views.get_act_comments),
     url(r'^comment/', views.comment),
+    url(r'^reply_comment/', views.reply_comment),
+    url(r'^get_reply_comment/', views.get_reply_comment),
+    url(r'^get_origin_comment/', views.get_origin_comment),
 ]
