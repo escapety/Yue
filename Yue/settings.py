@@ -56,7 +56,7 @@ ROOT_URLCONF = 'Yue.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['FrontEnd/dist'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +67,10 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "FrontEnd/dist/static"),
 ]
 
 WSGI_APPLICATION = 'Yue.wsgi.application'
