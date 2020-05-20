@@ -1,5 +1,4 @@
 import requests
-import time
 headers = {"User-Agent":\
                "Mozilla/5.0 (Windows NT 6.1; WOW64)"
                + " AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -23,8 +22,8 @@ def increase_act():
     m = "new_activity"
     r_url = tem_url % m
     cnt = 1
-    s = time.strftime("%Y-%m-%d",time.localtime())
-    print(s)
+    time_s = "2020-05-30 13:00"
+    time_e = "2020-05-30 19:00"
     for i in range(0, cnt):
 
         params = {}
@@ -33,6 +32,5 @@ def increase_act():
         params["location"] = "PKU"
         params["time"] = ""
 
-increase_act()
 
 

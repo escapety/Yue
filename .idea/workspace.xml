@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c463cca7-d037-4e7d-9f37-1d5cc7a2a291" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEnd/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Yue.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Yue.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/tests2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yue/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Yue/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +13,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Yue$Test__BackEnd_tests_BackEndTest.coverage" NAME="Test: BackEnd.tests.BackEndTest Coverage Results" MODIFIED="1589997169605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Yue$Test__BackEnd_tests2_BackEndTest_test_join_activity.coverage" NAME="Test: BackEnd.tests2.BackEndTest.test_join_activity Coverage Results" MODIFIED="1590000665702" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Yue$Test__BackEnd_tests2_BackEndTest_test_get_all_activities.coverage" NAME="Test: BackEnd.tests2.BackEndTest.test_get_all_activities Coverage Results" MODIFIED="1590001059833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Yue$Test__BackEnd_tests2_BackEndTest_test_get_activity.coverage" NAME="Test: BackEnd.tests2.BackEndTest.test_get_activity Coverage Results" MODIFIED="1590001368140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Yue$Test__BackEnd_tests2_BackEndTest_test_new_activity.coverage" NAME="Test: BackEnd.tests2.BackEndTest.test_new_activity Coverage Results" MODIFIED="1590000541904" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/Yue$utils.coverage" NAME="utils Coverage Results" MODIFIED="1589994593588" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/BackEnd" />
+    <SUITE FILE_PATH="coverage/Yue$Test__BackEnd_tests2_BackEndTest_test_joined_activities.coverage" NAME="Test: BackEnd.tests2.BackEndTest.test_joined_activities Coverage Results" MODIFIED="1590000845396" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Yue$Test__BackEnd_tests2_BackEndTest_test_comment.coverage" NAME="Test: BackEnd.tests2.BackEndTest.test_comment Coverage Results" MODIFIED="1590001766819" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Yue$Test__BackEnd_tests2_BackEndTest.coverage" NAME="Test: BackEnd.tests2.BackEndTest Coverage Results" MODIFIED="1590000244334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -54,26 +56,26 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="1" />
-          <entry key="py" value="5" />
+          <entry key="py" value="11" />
           <entry key="sql" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="Python" value="5" />
+          <entry key="Python" value="11" />
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1013" />
+          <entry key="py" value="2713" />
           <entry key="sql" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1013" />
+          <entry key="Python" value="2713" />
           <entry key="Scratch" value="14" />
         </counts>
       </usages-collector>
@@ -107,31 +109,79 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BackEnd/tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="180">
+              <caret line="10" selection-start-line="10" selection-end-line="13" selection-end-column="45" />
               <folding>
-                <marker date="1589992955579" expanded="true" signature="61:117" ph="..." />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BackEnd/utils.py">
+        <entry file="file://$PROJECT_DIR$/BackEnd/tests2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+            <state relative-caret-position="337">
+              <caret line="46" column="62" lean-forward="true" selection-start-line="46" selection-start-column="62" selection-end-line="46" selection-end-column="62" />
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
-                <marker date="1589994593576" expanded="true" signature="668:673" ph="..." />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/BackEnd/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Test/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///usr/local/lib/python3.7/site-packages/django/db/models/query.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="425" column="8" selection-start-line="425" selection-start-column="8" selection-end-line="425" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BackEnd/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BackEnd/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="263">
+              <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+                <marker date="1589996987803" expanded="true" signature="668:673" ph="..." />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -151,9 +201,10 @@
       <list>
         <option value="$PROJECT_DIR$/Yue/urls.py" />
         <option value="$PROJECT_DIR$/Yue/settings.py" />
-        <option value="$PROJECT_DIR$/BackEnd/tests.py" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/21efb2c2-b44b-443f-9744-a4a86f0e4b6f/console.sql" />
         <option value="$PROJECT_DIR$/BackEnd/utils.py" />
+        <option value="$PROJECT_DIR$/BackEnd/tests.py" />
+        <option value="$PROJECT_DIR$/BackEnd/tests2.py" />
       </list>
     </option>
   </component>
@@ -169,9 +220,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="592" />
+    <option name="x" value="361" />
     <option name="y" value="23" />
-    <option name="width" value="1043" />
+    <option name="width" value="1318" />
     <option name="height" value="970" />
   </component>
   <component name="ProjectView">
@@ -234,8 +285,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.utils">
-    <configuration name="utils" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Django tests.Test: BackEnd.tests2.BackEndTest.test_comment">
+    <configuration name="Test: BackEnd.tests2.BackEndTest.test_comment" type="DjangoTestsConfigurationType" factoryName="Django tests" temporary="true">
       <module name="Yue" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -243,18 +294,96 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/BackEnd" />
+      <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BackEnd/utils.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
+      <option name="TARGET" value="BackEnd.tests2.BackEndTest.test_comment" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test: BackEnd.tests2.BackEndTest.test_get_activity" type="DjangoTestsConfigurationType" factoryName="Django tests" temporary="true">
+      <module name="Yue" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="BackEnd.tests2.BackEndTest.test_get_activity" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test: BackEnd.tests2.BackEndTest.test_get_all_activities" type="DjangoTestsConfigurationType" factoryName="Django tests" temporary="true">
+      <module name="Yue" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="BackEnd.tests2.BackEndTest.test_get_all_activities" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test: BackEnd.tests2.BackEndTest.test_join_activity" type="DjangoTestsConfigurationType" factoryName="Django tests" temporary="true">
+      <module name="Yue" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="BackEnd.tests2.BackEndTest.test_join_activity" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test: BackEnd.tests2.BackEndTest.test_joined_activities" type="DjangoTestsConfigurationType" factoryName="Django tests" temporary="true">
+      <module name="Yue" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="BackEnd.tests2.BackEndTest.test_joined_activities" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
     <configuration name="Yue" type="Python.DjangoServer" factoryName="Django server">
@@ -283,11 +412,19 @@
     </configuration>
     <list>
       <item itemvalue="Django server.Yue" />
-      <item itemvalue="Python.utils" />
+      <item itemvalue="Django tests.Test: BackEnd.tests2.BackEndTest.test_join_activity" />
+      <item itemvalue="Django tests.Test: BackEnd.tests2.BackEndTest.test_joined_activities" />
+      <item itemvalue="Django tests.Test: BackEnd.tests2.BackEndTest.test_get_all_activities" />
+      <item itemvalue="Django tests.Test: BackEnd.tests2.BackEndTest.test_get_activity" />
+      <item itemvalue="Django tests.Test: BackEnd.tests2.BackEndTest.test_comment" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.utils" />
+        <item itemvalue="Django tests.Test: BackEnd.tests2.BackEndTest.test_comment" />
+        <item itemvalue="Django tests.Test: BackEnd.tests2.BackEndTest.test_get_activity" />
+        <item itemvalue="Django tests.Test: BackEnd.tests2.BackEndTest.test_get_all_activities" />
+        <item itemvalue="Django tests.Test: BackEnd.tests2.BackEndTest.test_joined_activities" />
+        <item itemvalue="Django tests.Test: BackEnd.tests2.BackEndTest.test_join_activity" />
       </list>
     </recent_temporary>
   </component>
@@ -304,12 +441,44 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Test__BackEnd_tests2_BackEndTest_test_joined_activities - 2020.05.21 at 02h 53m 12s.xml">
+      <configuration name="Test: BackEnd.tests2.BackEndTest.test_joined_activities" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__BackEnd_tests2_BackEndTest_test_joined_activities - 2020.05.21 at 02h 54m 06s.xml">
+      <configuration name="Test: BackEnd.tests2.BackEndTest.test_joined_activities" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__BackEnd_tests2_BackEndTest_test_get_all_activities - 2020.05.21 at 02h 56m 26s.xml">
+      <configuration name="Test: BackEnd.tests2.BackEndTest.test_get_all_activities" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__BackEnd_tests2_BackEndTest_test_get_all_activities - 2020.05.21 at 02h 56m 36s.xml">
+      <configuration name="Test: BackEnd.tests2.BackEndTest.test_get_all_activities" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__BackEnd_tests2_BackEndTest_test_get_all_activities - 2020.05.21 at 02h 57m 28s.xml">
+      <configuration name="Test: BackEnd.tests2.BackEndTest.test_get_all_activities" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__BackEnd_tests2_BackEndTest_test_get_all_activities - 2020.05.21 at 02h 57m 40s.xml">
+      <configuration name="Test: BackEnd.tests2.BackEndTest.test_get_all_activities" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__BackEnd_tests2_BackEndTest_test_get_activity - 2020.05.21 at 03h 00m 18s.xml">
+      <configuration name="Test: BackEnd.tests2.BackEndTest.test_get_activity" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__BackEnd_tests2_BackEndTest_test_get_activity - 2020.05.21 at 03h 02m 26s.xml">
+      <configuration name="Test: BackEnd.tests2.BackEndTest.test_get_activity" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__BackEnd_tests2_BackEndTest_test_get_activity - 2020.05.21 at 03h 02m 49s.xml">
+      <configuration name="Test: BackEnd.tests2.BackEndTest.test_get_activity" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__BackEnd_tests2_BackEndTest_test_comment - 2020.05.21 at 03h 08m 07s.xml">
+      <configuration name="Test: BackEnd.tests2.BackEndTest.test_comment" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="592" y="23" width="1043" height="970" extended-state="0" />
+    <frame x="361" y="23" width="1318" height="970" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3116883" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24451411" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
@@ -321,7 +490,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32915717" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997722" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -339,16 +508,6 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/BackEnd/utils.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor" />
@@ -360,26 +519,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Yue/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <marker date="1589992955579" expanded="true" signature="61:117" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/21efb2c2-b44b-443f-9744-a4a86f0e4b6f/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -387,13 +526,86 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Yue/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.7/site-packages/django/db/models/query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="425" column="8" selection-start-line="425" selection-start-column="8" selection-end-line="425" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="128" lean-forward="true" selection-start-line="128" selection-end-line="128" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/BackEnd/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+        <state relative-caret-position="263">
+          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1589994593576" expanded="true" signature="668:673" ph="..." />
+            <marker date="1589996987803" expanded="true" signature="668:673" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" selection-start-line="10" selection-end-line="13" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/tests2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="46" column="62" lean-forward="true" selection-start-line="46" selection-start-column="62" selection-end-line="46" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
