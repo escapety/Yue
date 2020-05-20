@@ -22,7 +22,7 @@ export default {
       name: '李华',
       gender: '男',
       level: '16级',
-      school: '信科',
+      school: '信科'
     }
   }
 }
