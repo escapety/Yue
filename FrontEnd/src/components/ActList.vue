@@ -24,33 +24,18 @@
 export default {
   data () {
     return {
-      actList: [{
-        actID: 1,
-        theme: '自习',
-        content: '一起学习',
-        location: '二教',
-        datetime: '2020-05-04 12:00',
-        ddl: '2020-05-04 09:00'
-      }, {
-        actID: 2,
-        theme: '篮球',
-        content: '篮球走起',
-        location: '五四篮球场',
-        datetime: '2020-05-10 14:00',
-        ddl: '2020-05-10 10:00'
-      }],
-      type: this.listtype
+      actList: []
     }
   },
   props: ['listtype'],
   created: function () {
-    if (listtype === 'all') {
+    if (this.listtype === 'all') {
       this.$axios({
         method: 'get',
         url: '/BackEnd/get_all_activities/'
       })
         .then(function (response) {
-          console.log(response)
+          console.log(response.data)
         })
     }
   }

@@ -6,8 +6,9 @@
     <el-form-item label="密码" prop="password">
       <el-input v-model="user.password" type="password" clearable></el-input>
     </el-form-item>
+    <el-alert title="登录失败" type="error" center :closable="false" v-show="showerror"></el-alert>
     <el-form-item>
-      <el-button type="primary" @click="login('user')">登录</el-button>
+      <el-button type="primary" @click="login">登录</el-button>
     </el-form-item>
   </el-form>
 </template>
@@ -20,6 +21,7 @@ export default {
         name: '',
         password: ''
       },
+      showerror: false,
       rules: {
         name: [
           { required: true, message: '请输入用户名', triggle: 'blur' },
@@ -32,27 +34,32 @@ export default {
     }
   },
   methods: {
-    login (formName) {
-      this.$refs[formName].validate((valid) => {
+    login () {
+      let _this = this
+      this.$refs['user'].validate((valid) => {
         if (valid) {
-          this.$router.push('main')
-          // axios({
-          //   method: 'get',
-          //   url: '/BackEnd/authentication',
-          //   params: {
-          //     name: 'myuser',
-          //     password: 'abcde'
-          //   }
-          // })
-          //   .then(function (response) {
-          //     console.log(response)
-          //   })
-          //   .catch(function (error) {
-          //     console.log(error)
-          //   })
-        } else {
-          this.$refs[formName].resetFields()
+          this.$axios({
+            method: 'get',
+            url: '/BackEnd/authentication/',
+            params: {
+              name: _this.user.name,
+              password: _this.user.password
+            }
+          })
+            .then(function (response) {
+              console.log(response.data)
+              if (response.data === 'OK') {
+                _this.$router.push('main')
+              } else {
+                _this.showerror = true
+              }
+            })
+            .catch(function (error) {
+              _this.showerror = true
+              console.log(error)
+            })
         }
+        this.$refs['user'].resetFields()
       })
     }
   }

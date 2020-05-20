@@ -1,5 +1,5 @@
 <template>
-  <el-form :model="user" :rules="rules" ref="user">
+  <el-form :model="user" :rules="rules" ref="newuser">
     <el-form-item label="用户名" prop="name">
       <el-input v-model="user.name" clearable></el-input>
     </el-form-item>
@@ -9,8 +9,9 @@
     <el-form-item label="确认密码" prop="checkpassword">
       <el-input v-model="user.checkpassword" show-password clearable></el-input>
     </el-form-item>
+    <el-alert title="注册失败" type="error" center :closable="false" v-show="showerror"></el-alert>
     <el-form-item>
-      <el-button type="primary" @click="register('user')">注册</el-button>
+      <el-button type="primary" @click="register">注册</el-button>
     </el-form-item>
   </el-form>
 </template>
@@ -32,6 +33,7 @@ export default {
         password: '',
         checkpassword: ''
       },
+      showerror: false,
       rules: {
         name: [
           { required: true, message: '请输入用户名', triggle: 'blur' },
@@ -41,29 +43,37 @@ export default {
           { required: true, message: '请输入密码', triggle: 'blur' }
         ],
         checkpassword: [
-          { validator: checkPassword, triggle: 'blur' }
+          { required: true, validator: checkPassword, triggle: 'blur' }
         ]
       }
     }
   },
   methods: {
-    register (formName) {
-      this.$refs[formName].validate((valid) => {
+    register () {
+      let _this = this
+      this.$refs['newuser'].validate((valid) => {
         if (valid) {
           this.$axios({
             method: 'get',
             url: '/BackEnd/new_user/',
-            param: {
-              name: this.name,
-              password: this.password
+            params: {
+              name: _this.user.name,
+              password: _this.user.password
             }
           })
             .then(function (response) {
-              console.log(response)
+              if (response.data === 'OK') {
+                _this.$router.push('main')
+              } else {
+                _this.showerror = true
+              }
             })
-        } else {
-          this.$refs[formName].resetFields()
+            .catch(function (error) {
+              _this.showerror = true
+              console.log(error)
+            })
         }
+        this.$refs['newuser'].resetFields()
       })
     }
   }
