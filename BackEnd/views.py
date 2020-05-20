@@ -8,17 +8,26 @@ from . import models
 def new_user(request):
     user_name = request.GET.get('name', '')
     user_pw = request.GET.get('password', '')
-    models.User.objects.create(name = user_name, password = user_pw, info = '', position = '')
-    return HttpResponse("OK")
+    user = models.User.objects.create(name = user_name, password = user_pw, info = '', position = '')
+    ret = {
+        'user_id':user.id
+    }
+    return HttpResponse(json.dumps(ret), content_type='application/json')
 
 def authentication(request):
     user_name = request.GET.get('name', '')
     user_pw = request.GET.get('password', '')
     user = models.User.objects.get(name = user_name)
+    ret = {
+        'user_id': user.id,
+        'errormsg':''
+    }
     if user.password == user_pw:
-        return HttpResponse("OK")
+        ret['errormsg'] = 'SUCCESS'
+        return HttpResponse(json.dumps(ret), content_type='application/json')
     else:
-        return HttpResponse("ERROR")
+        ret['errormsg'] = 'FAIL'
+        return HttpResponse(json.dumps(ret), content_type='application/json')
 
 def get_all_activities(request):
     act_list = []
@@ -80,7 +89,10 @@ def new_activity(request):
     time = act_time, deadline = act_deadline, sponsor = act_sponsor, introduction = act_intr,\
     type = act_type, attr = act_attr, complaint_num = 0)
     models.Organize.objects.create(user = act_sponsor, activity = act.id)
-    return HttpResponse("OK")
+    ret = {
+        'act_id':act.id
+    }
+    return HttpResponse(json.dumps(ret), content_type='application/json')
 
 
 def get_activity(request):
