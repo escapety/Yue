@@ -31,6 +31,3 @@ def increase_act():
         params["theme"] = "boring_theme" + str(i)
         params["location"] = "PKU"
         params["time"] = ""
-
-
-

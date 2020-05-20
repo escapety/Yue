@@ -61,10 +61,3 @@ class BackEndTest(TestCase):
         res = self.client.get('/BackEnd/get_user_comments/', {'userid':1}, follow=True)
         self.assertEqual(1, len(list(res.json())))
 
-
-
-
-
-
-
-
