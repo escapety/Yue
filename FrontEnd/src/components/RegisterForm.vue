@@ -62,11 +62,14 @@ export default {
             }
           })
             .then(function (response) {
-              if (response.data === 'OK') {
-                _this.$router.push('main')
-              } else {
-                _this.showerror = true
-              }
+              console.log(response.data)
+              // if (response.data === 'OK') {
+              //   _this.$router.push('main')
+              // } else {
+              //   _this.showerror = true
+              // }
+              _this.$cookies.set('userid', response.data.user_id)
+              _this.$router.push('main')
             })
             .catch(function (error) {
               _this.showerror = true

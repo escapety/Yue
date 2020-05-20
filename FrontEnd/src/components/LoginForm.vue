@@ -48,7 +48,8 @@ export default {
           })
             .then(function (response) {
               console.log(response.data)
-              if (response.data === 'OK') {
+              if (response.data.errormsg === 'SUCCESS') {
+                _this.$cookies.set('userid', response.data.user_id)
                 _this.$router.push('main')
               } else {
                 _this.showerror = true
