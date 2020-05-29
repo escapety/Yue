@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from '@/views/Login'
 import MainView from '@/views/MainView'
 import Profile from '@/views/Profile'
+import Activity from '@/views/Activity'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/profile',
       name: 'profile',
       component: Profile
+    },
+    {
+      path: '/activity',
+      name: 'activity',
+      component: Activity
     }
   ]
 })

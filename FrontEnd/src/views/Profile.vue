@@ -8,10 +8,10 @@
           <profileCard/>
         </el-col>
         <el-col :span="17" :offset='1'>
-          <h3>我创建的活动</h3>
-          <ActList listtype="created"/>
+          <!-- <h3>我创建的活动</h3>
+          <ActList listtype="signup"/> -->
           <h3>我参加的活动</h3>
-          <ActList listtype="joined"/>
+          <ActList listtype="join"/>
         </el-col>
       </el-row>
     </el-body>

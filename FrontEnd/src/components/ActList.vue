@@ -1,6 +1,6 @@
 <template>
   <el-table :data='actList' style='width:100%' border>
-    <el-table-column type='expand'>
+    <!-- <el-table-column type='expand'>
       <template slot-scope='props'>
         <el-form label-position='left' label-width="100px">
           <el-form-item label='活动ID'>{{props.row.id}}</el-form-item>
@@ -15,10 +15,15 @@
           </el-form-item>
         </el-form>
       </template>
-    </el-table-column>
+    </el-table-column> -->
     <el-table-column label='活动主题' prop='theme'></el-table-column>
     <el-table-column label='活动时间' prop='time'></el-table-column>
     <el-table-column label='地点' prop='location'></el-table-column>
+    <el-table-column label=''>
+      <template slot-scope="scope">
+        <el-button @click="viewActivity(scope.row)" type="text">查看活动</el-button>
+      </template>
+    </el-table-column>
   </el-table>
 </template>
 <script>
@@ -33,6 +38,9 @@ export default {
     this.loadAct()
   },
   methods: {
+    viewActivity (row) {
+      this.$router.push({path: '/Activity', query: {'id': row.id}})
+    },
     loadAct () {
       let _this = this
       if (this.listtype === 'all') {
