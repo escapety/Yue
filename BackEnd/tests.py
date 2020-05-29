@@ -8,16 +8,20 @@ class BackEndTest(TestCase):
         models.User.objects.create(name = 'testuser', password = '123456')
 
     def test_new_user(self):
-        self.client.get('/BackEnd/new_user/', {'name':'testuser1', 'password':'123456'})
-        user = User.objects.get(name = 'testuser1')
+        self.client.get('/BackEnd/new_user/', {'name':'testuser', 'password':'123456'})
+        user = User.objects.get(name = 'testuser')
         self.assertEqual(user.password, '123456')
+        res = self.client.get('/BackEnd/new_user/', {'name': 'testuser', 'password': '123456'})
+        self.assertEqual(res.json()['errormsg'], 'FAIL: EXIST SAME NAME USER')
 
     def test_authentication(self):
+        res = self.client.get('/BackEnd/authentication/', {'name': 'testuser2', 'password': '123456'})
+        self.assertEqual(res.json()['errormsg'], 'FAIL: USER NOT EXIST')
         User.objects.create(name = 'testuser2', password = '123456')
         res = self.client.get('/BackEnd/authentication/', {'name': 'testuser2', 'password': '123456'})
         self.assertEqual(res.json()['errormsg'], 'SUCCESS')
         res = self.client.get('/BackEnd/authentication/', {'name': 'testuser2', 'password': '123457'})
-        self.assertEqual(res.json()['errormsg'], 'FAIL')
+        self.assertEqual(res.json()['errormsg'], 'FAIL: WRONG PASSWORD')
 
     def test_get_all_activities(self):
         user = User.objects.create(name='testuser3', password='123456')
