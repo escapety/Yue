@@ -249,3 +249,43 @@ def get_origin_comment(request):
         'data':comment_list,
     }
     return HttpResponse(json.dumps(ret), content_type='application/json')
+
+
+def send_message(request):
+    send_id = int(request.GET.get('userid', ''))
+    receive_id = int(request.GET.get('targetid', ''))
+    text = request.GET.get('text', '')
+    time = request.GET.get('time', '')
+
+    target_user = models.User.objects.filter(receive_id)
+    if not target_user.exists():
+        ret = {
+
+            'msg':'FAIL: USER NOT EXIST',
+        }
+        return HttpResponse(json.dumps(ret), content_type='application/json')
+
+
+    models.Message.objects.create(send = send_id, receive = receive_id, text = text, time = time)
+    ret = {
+
+        'msg':'SUCCESS',
+    }
+    return HttpResponse(json.dumps(ret), content_type='application/json')
+
+def get_receive_message(request):
+    receive_id = int(request.GET.get('userid', ''))
+    all_message = models.Message.objects.filter(receive = receive_id)
+    ret = {
+        'data': all_message,
+    }
+    return HttpResponse(json.dumps(ret), content_type='application/json')
+
+def get_receive_message_from_target(request)
+    receive_id = int(request.GET.get('userid', ''))
+    send_id = int(request.GET.get('targetid', ''))
+    all_message = models.Message.objects.filter(receive = receive_id, send = send_id)
+    ret = {
+        'data': all_message,
+    }
+    return HttpResponse(json.dumps(ret), content_type='application/json')
