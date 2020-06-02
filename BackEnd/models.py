@@ -77,3 +77,10 @@ class Friend(models.Model):
 class Commemt_reply(models.Model):
     comment = models.IntegerField()
     reply = models.IntegerField()
+
+#私信
+class Message(models.Model):
+    send = models.IntegerField()
+    receive = models.IntegerField()
+    time = models.DateTimeField()
+    text = models.CharField(max_length=256)
