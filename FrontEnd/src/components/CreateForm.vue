@@ -36,6 +36,7 @@
   </el-form>
 </template>
 <script>
+import {new_activity} from '../api/api.js'
 export default {
   data () {
     return {
@@ -53,24 +54,20 @@ export default {
   },
   methods: {
     create () {
-      let _this = this
-      this.$axios({
-        method: 'get',
-        url: '/BackEnd/new_activity/',
-        params: {
-          name: _this.act.name,
-          theme: _this.act.theme,
-          location: _this.act.location,
-          time: _this.act.time,
-          deadline: _this.act.deadline,
-          sponsor: _this.$cookies.get('userid'),
-          intr: _this.act.intr,
-          type: _this.act.type,
-          attr: _this.act.attr
-        }
+      new_activity({
+        name: this.act.name,
+        theme: this.act.theme,
+        location: this.act.location,
+        time: this.act.time,
+        deadline: this.act.deadline,
+        sponsor: this.$cookies.get('userid'),
+        intr: this.act.intr,
+        type: this.act.type,
+        attr: this.act.attr
       })
-        .then(function (response) {
+        .then(response => {
           window.alert('活动创建成功')
+          
         })
     }
   }

@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import {comment} from '../api/api.js'
 export default {
   data () {
     return {
@@ -28,17 +29,11 @@ export default {
   },
   props: ['actId'],
   methods: {
-    addComment () {
-      console.log('addcomment')
-      let _this = this
-      this.$axios({
-        method: 'get',
-        url: '/BackEnd/comment/',
-        params: {
-          userid: _this.$cookies.get('userid'),
-          actid: _this.actid,
-          comment: _this.textarea
-        }
+    addComment() {
+      comment({
+        userid: this.$cookies.get('userid'),
+        actid: this.actid,
+        comment: this.textarea
       })
         .then(function (response) {
           window.alert('评论成功')
