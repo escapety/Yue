@@ -281,7 +281,7 @@ def get_receive_message(request):
     }
     return HttpResponse(json.dumps(ret), content_type='application/json')
 
-def get_receive_message_from_target(request)
+def get_receive_message_from_target(request):
     receive_id = int(request.GET.get('userid', ''))
     send_id = int(request.GET.get('targetid', ''))
     all_message = models.Message.objects.filter(receive = receive_id, send = send_id)
