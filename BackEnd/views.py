@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.core import serializers
+from django.core.exceptions import ObjectDoesNotExist
 import json
 from . import models
 
@@ -8,25 +9,41 @@ from . import models
 def new_user(request):
     user_name = request.GET.get('name', '')
     user_pw = request.GET.get('password', '')
+    ori_user = models.User.objects.filter(name = user_name)
+    if ori_user.exists():
+        ret = {
+            'user_id':-1,
+            'errormsg':'FAIL: EXIST SAME NAME USER',
+        }
+        return HttpResponse(json.dumps(ret), content_type='application/json')
     user = models.User.objects.create(name = user_name, password = user_pw, info = '', position = '')
     ret = {
-        'user_id':user.id
+        'user_id':user.id,
+        'errormsg':'SUCCESS',
     }
     return HttpResponse(json.dumps(ret), content_type='application/json')
 
 def authentication(request):
     user_name = request.GET.get('name', '')
     user_pw = request.GET.get('password', '')
-    user = models.User.objects.get(name = user_name)
+    try:
+        user = models.User.objects.get(name = user_name)
+    except ObjectDoesNotExist:
+        ret = {
+            'user_id': -1,
+            'errormsg':'FAIL: USER NOT EXIST',
+        }
+        return HttpResponse(json.dumps(ret), content_type='application/json')
     ret = {
         'user_id': user.id,
-        'errormsg':''
+        'errormsg':'',
     }
     if user.password == user_pw:
         ret['errormsg'] = 'SUCCESS'
         return HttpResponse(json.dumps(ret), content_type='application/json')
     else:
-        ret['errormsg'] = 'FAIL'
+        ret['user_id'] = -1
+        ret['errormsg'] = 'FAIL: WRONG PASSWORD'
         return HttpResponse(json.dumps(ret), content_type='application/json')
 
 def get_all_activities(request):
@@ -130,45 +147,38 @@ def get_activity(request):
 def join_activity(request):
     user_id = int(request.GET.get('userid', ''))
     act_id = int(request.GET.get('actid', ''))
+    all_join = models.Join.objects.all()
+    for join_item in all_join:
+        if join_item.user == user_id and join_item.activity == act_id:
+            return HttpResponse("You have Joined")
     models.Join.objects.create(user = user_id, activity = act_id)
+
+    dic = {'user':user_id,'activity':act_id}
+    models.Sign_up.objects.filter(**dic).delete()
     return HttpResponse("OK")
 
 def sign_up_activity(request):
     user_id = int(request.GET.get('userid', ''))
     act_id = int(request.GET.get('actid', ''))
+    all_sign_up = models.Sign_up.objects.all()
+    for sign_up_item in all_sign_up:
+        if sign_up_item.user == user_id and sign_up_item.activity == act_id:
+            return HttpResponse("You have signed up")
+    all_join = models.Join.objects.all()
+    for join_item in all_join:
+        if join_item.user == user_id and join_item.activity == act_id:
+            return HttpResponse("You have Joined")
     models.Sign_up.objects.create(user = user_id, activity = act_id)
     return HttpResponse("OK")
 
 def search_by_name(request):
     get_name = request.GET.get('name', '')
-    act = models.Activity.objects.get(name = get_name)
-    get_id = act.id
-    join = models.Join.objects.filter(activity = get_id)
-    join_list = []
-    for join_item in join:
-        join_list.append(join_item.user)
-    sign_up = models.Sign_up.objects.filter(activity = get_id)
-    sign_up_list = []
-    for sign_up_item in sign_up:
-        sign_up_list.append(sign_up_item.user)
-    comments =  act.comments.all()
-    comments_list = []
-    for comments_item in comments:
-        comments_list.append(comments_item.id)
+    all_act = models.Activity.objects.filter(name = get_name)
+    act_list = []
+    for act_item in all_act:
+        act_list.append(act_item.id)
     ret = {
-        'name':act.name,
-        'theme':act.theme,
-        'location':act.location,
-        'time':str(act.time),
-        'deadline':str(act.deadline),
-        'sponsor':act.sponsor,
-        'intr':act.introduction,
-        'type':act.type,
-        'attr':act.attr,
-        'join_list':join_list,
-        'sign_up_list':sign_up_list,
-        'comments_list':comments_list,
-        'complaint_num':act.complaint_num,
+        'data':act_list,
     }
     return HttpResponse(json.dumps(ret), content_type='application/json')
 
@@ -252,5 +262,62 @@ def get_origin_comment(request):
         comment_list.append(reply_item.comment)
     ret = {
         'data':comment_list,
+    }
+    return HttpResponse(json.dumps(ret), content_type='application/json')
+
+
+def send_message(request):
+    send_id = int(request.GET.get('userid', ''))
+    receive_id = int(request.GET.get('targetid', ''))
+    text = request.GET.get('text', '')
+    time = request.GET.get('time', '')
+
+    target_user = models.User.objects.filter(receive = receive_id)
+    if not target_user.exists():
+        ret = {
+
+            'msg':'FAIL: USER NOT EXIST',
+        }
+        return HttpResponse(json.dumps(ret), content_type='application/json')
+    else：
+        models.Message.objects.create(send = send_id, receive = receive_id, text = text, time = time)
+        ret = {
+
+            'msg':'SUCCESS',
+        }
+        return HttpResponse(json.dumps(ret), content_type='application/json')
+
+def get_receive_message(request):
+    receive_id = int(request.GET.get('userid', ''))
+    all_message = models.Message.objects.filter(receive = receive_id)
+    send_list = []
+    time_list = []
+    text_list = []
+    for item in all_message:
+        send_list.append(item.send)
+        time_list.append(str(item.time))
+        text_list.append(item.text)
+    ret = {
+        'send': send_list,
+        'time': time_list,
+        'text': text_list,
+    }
+    return HttpResponse(json.dumps(ret), content_type='application/json')
+
+def get_receive_message_from_target(request):
+    receive_id = int(request.GET.get('userid', ''))
+    send_id = int(request.GET.get('targetid', ''))
+    all_message = models.Message.objects.filter(receive = receive_id, send = send_id)
+    send_list = []
+    time_list = []
+    text_list = []
+    for item in all_message:
+        send_list.append(item.send)
+        time_list.append(str(item.time))
+        text_list.append(item.text)
+    ret = {
+        'send': send_list,
+        'time': time_list,
+        'text': text_list,
     }
     return HttpResponse(json.dumps(ret), content_type='application/json')

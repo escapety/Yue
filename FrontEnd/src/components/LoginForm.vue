@@ -12,8 +12,8 @@
     </el-form-item>
   </el-form>
 </template>
-
 <script>
+import {authentication} from '../api/api.js'
 export default {
   data () {
     return {
@@ -35,28 +35,24 @@ export default {
   },
   methods: {
     login () {
-      let _this = this
       this.$refs['user'].validate((valid) => {
         if (valid) {
-          this.$axios({
-            method: 'get',
-            url: '/BackEnd/authentication/',
-            params: {
-              name: _this.user.name,
-              password: _this.user.password
-            }
+          authentication({
+            name: this.user.name,
+            password: this.user.password
           })
-            .then(function (response) {
+            .then(response => {
               console.log(response.data)
+              console.log(this)
               if (response.data.errormsg === 'SUCCESS') {
-                _this.$cookies.set('userid', response.data.user_id)
-                _this.$router.push('main')
+                this.$cookies.set('userid', response.data.user_id)
+                this.$router.push('main')
               } else {
-                _this.showerror = true
+                this.showerror = true
               }
             })
-            .catch(function (error) {
-              _this.showerror = true
+            .catch(error => {
+              this.showerror = true
               console.log(error)
             })
         }

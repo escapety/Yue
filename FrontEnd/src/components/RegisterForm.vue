@@ -16,6 +16,7 @@
   </el-form>
 </template>
 <script>
+import {new_user} from '../api/api.js'
 export default {
   data () {
     var checkPassword = (rule, value, callback) => {
@@ -50,29 +51,19 @@ export default {
   },
   methods: {
     register () {
-      let _this = this
       this.$refs['newuser'].validate((valid) => {
         if (valid) {
-          this.$axios({
-            method: 'get',
-            url: '/BackEnd/new_user/',
-            params: {
-              name: _this.user.name,
-              password: _this.user.password
-            }
+          new_user({
+            name: this.user.name,
+            password: this.user.password
           })
-            .then(function (response) {
+            .then(response => {
               console.log(response.data)
-              // if (response.data === 'OK') {
-              //   _this.$router.push('main')
-              // } else {
-              //   _this.showerror = true
-              // }
-              _this.$cookies.set('userid', response.data.user_id)
-              _this.$router.push('main')
+              this.$cookies.set('userid', response.data.user_id)
+              this.$router.push('main')
             })
-            .catch(function (error) {
-              _this.showerror = true
+            .catch(error => {
+              this.showerror = true
               console.log(error)
             })
         }
