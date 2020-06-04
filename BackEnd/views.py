@@ -276,16 +276,34 @@ def send_message(request):
 def get_receive_message(request):
     receive_id = int(request.GET.get('userid', ''))
     all_message = models.Message.objects.filter(receive = receive_id)
+    send_list = []
+    time_list = []
+    text_list = []
+    for item in all_message:
+        send_list.append(item.send)
+        time_list.append(str(item.time))
+        text_list.append(item.text)
     ret = {
-        'data': all_message,
+        'send': send_list,
+        'time': time_list,
+        'text': text_list,
     }
     return HttpResponse(json.dumps(ret), content_type='application/json')
 
-def get_receive_message_from_target(request)
+def get_receive_message_from_target(request):
     receive_id = int(request.GET.get('userid', ''))
     send_id = int(request.GET.get('targetid', ''))
     all_message = models.Message.objects.filter(receive = receive_id, send = send_id)
+    send_list = []
+    time_list = []
+    text_list = []
+    for item in all_message:
+        send_list.append(item.send)
+        time_list.append(str(item.time))
+        text_list.append(item.text)
     ret = {
-        'data': all_message,
+        'send': send_list,
+        'time': time_list,
+        'text': text_list,
     }
     return HttpResponse(json.dumps(ret), content_type='application/json')
