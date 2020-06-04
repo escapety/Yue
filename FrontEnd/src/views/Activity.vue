@@ -1,7 +1,9 @@
 <template>
-  <el-container>
+  <div>
     <el-header><NavBar></NavBar></el-header>
     <el-body>
+      <p/>
+      <el-page-header @back="goBack" content="活动详情"></el-page-header>
       <el-row>
         <el-col :span="8" :offset="4">
           <h3>{{actInfo.name}}</h3>
@@ -38,71 +40,39 @@
       </el-row>
       <el-row>
         <el-col :span="4" :offset="10">
-          <el-button v-if="inAct" plain disabled>你已加入活动</el-button>
-          <el-button v-else type='primary' @click="joinAct">加入活动</el-button>
+          <el-button v-show="inAct" plain disabled>你已加入活动</el-button>
+          <el-button v-show="!inAct" type='primary' @click="joinAct">加入活动</el-button>
         </el-col>
       </el-row>
-      <!-- <CommentArea :actId='actInfo.id'/> -->
+      <CommentArea actId='actInfo.id'/>
     </el-body>
-  </el-container>
+  </div>
 </template>
 <script>
 import NavBar from '@/components/NavBar'
 import CommentArea from '@/components/CommentArea'
+import {join_activity} from '../api/api.js'
 export default {
   data () {
     return {
-      actInfo: {
-        name: 'name',
-        id: '',
-        theme: 'theme',
-        intr: 'intr',
-        attr: 'attr',
-        location: 'location',
-        time: 'time',
-        deadline: 'deadline'
-      },
+      actInfo: {},
       inAct: false
     }
   },
-  created: function () {
-    this.actInfo.id = this.$route.query.id
-    this.getAct(this.actInfo.id)
+  mounted: function () {
+    this.actInfo = this.$route.params.act
   },
   methods: {
-    getAct (actid) {
-      let _this = this
-      this.$axios({
-        method: 'get',
-        url: '/BackEnd/get_activity/',
-        params: {
-          id: actid
-        }
-      })
-        .then(function (response) {
-          console.log(response.data)
-          let act = response.data
-          _this.actInfo.name = act.name
-          _this.actInfo.theme = act.theme
-          _this.actInfo.intr = act.intr
-          _this.actInfo.attr = act.attr
-          _this.actInfo.location = act.location
-          _this.actInfo.time = act.time
-          _this.actInfo.deadline = act.deadline
-        })
+    goBack() {
+      this.$router.go(-1)
     },
     joinAct () {
-      let _this = this
-      this.$axios({
-        method: 'get',
-        url: '/BackEnd/join_activity/',
-        params: {
-          userid: this.$cookies.get('userid'),
-          actid: _this.actInfo.id
-        }
+      join_activity({
+        userid: this.$cookies.get('userid'),
+        actid: this.actInfo.id
       }).then(function (response) {
         console.log(response)
-        _this.inAct = true
+        this.inAct = true
       })
     }
   },

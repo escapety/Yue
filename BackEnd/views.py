@@ -147,12 +147,27 @@ def get_activity(request):
 def join_activity(request):
     user_id = int(request.GET.get('userid', ''))
     act_id = int(request.GET.get('actid', ''))
+    all_join = models.Join.objects.all()
+    for join_item in all_join:
+        if join_item.user == user_id and join_item.activity == act_id:
+            return HttpResponse("You have Joined")
     models.Join.objects.create(user = user_id, activity = act_id)
+
+    dic = {'user':user_id,'activity':act_id}
+    models.Sign_up.objects.filter(**dic).delete()
     return HttpResponse("OK")
 
 def sign_up_activity(request):
     user_id = int(request.GET.get('userid', ''))
     act_id = int(request.GET.get('actid', ''))
+    all_sign_up = models.Sign_up.objects.all()
+    for sign_up_item in all_sign_up:
+        if sign_up_item.user == user_id and sign_up_item.activity == act_id:
+            return HttpResponse("You have signed up")
+    all_join = models.Join.objects.all()
+    for join_item in all_join:
+        if join_item.user == user_id and join_item.activity == act_id:
+            return HttpResponse("You have Joined")
     models.Sign_up.objects.create(user = user_id, activity = act_id)
     return HttpResponse("OK")
 
