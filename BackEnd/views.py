@@ -272,21 +272,20 @@ def send_message(request):
     text = request.GET.get('text', '')
     time = request.GET.get('time', '')
 
-    target_user = models.User.objects.filter(receive_id)
+    target_user = models.User.objects.filter(receive = receive_id)
     if not target_user.exists():
         ret = {
 
             'msg':'FAIL: USER NOT EXIST',
         }
         return HttpResponse(json.dumps(ret), content_type='application/json')
+    else：
+        models.Message.objects.create(send = send_id, receive = receive_id, text = text, time = time)
+        ret = {
 
-
-    models.Message.objects.create(send = send_id, receive = receive_id, text = text, time = time)
-    ret = {
-
-        'msg':'SUCCESS',
-    }
-    return HttpResponse(json.dumps(ret), content_type='application/json')
+            'msg':'SUCCESS',
+        }
+        return HttpResponse(json.dumps(ret), content_type='application/json')
 
 def get_receive_message(request):
     receive_id = int(request.GET.get('userid', ''))
