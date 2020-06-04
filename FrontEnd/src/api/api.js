@@ -1,6 +1,20 @@
 import axios from 'axios'
 
 axios.defaults.baseURL = 'http://127.0.0.1:8000'
+export const send_message = param => {
+    return axios({
+        method: 'get',
+        url: '/BackEnd/send_message/',
+        params: param
+    })
+}
+export const get_receive_message = param => {
+    return axios({
+        method: 'get',
+        url: '/BackEnd/get_receive_message/',
+        params: param
+    })
+}
 export const new_user = param => {
     return axios({
         method: 'get',
